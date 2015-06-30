@@ -216,7 +216,7 @@ func (mw *Writer) prefix8(b byte, u uint8) error {
 			return err
 		}
 	}
-	prefixu8(mw.buf[mw.wloc:], b, u)
+	prefixu8(mw.buf[mw.wloc:], u, b)
 	mw.wloc += need
 	return nil
 }
@@ -228,7 +228,7 @@ func (mw *Writer) prefix16(b byte, u uint16) error {
 			return err
 		}
 	}
-	prefixu16(mw.buf[mw.wloc:], b, u)
+	prefixu16(mw.buf[mw.wloc:], u, b)
 	mw.wloc += need
 	return nil
 }
@@ -240,7 +240,7 @@ func (mw *Writer) prefix32(b byte, u uint32) error {
 			return err
 		}
 	}
-	prefixu32(mw.buf[mw.wloc:], b, u)
+	prefixu32(mw.buf[mw.wloc:], u, b)
 	mw.wloc += need
 	return nil
 }
@@ -252,7 +252,7 @@ func (mw *Writer) prefix64(b byte, u uint64) error {
 			return err
 		}
 	}
-	prefixu64(mw.buf[mw.wloc:], b, u)
+	prefixu64(mw.buf[mw.wloc:], u, b)
 	mw.wloc += need
 	return nil
 }
