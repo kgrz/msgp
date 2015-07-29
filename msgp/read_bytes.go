@@ -204,6 +204,20 @@ func ReadMapKeyZC(b []byte) ([]byte, []byte, error) {
 	return o, b, nil
 }
 
+// ReadInt64MapKeyZC attempts to read a map key
+// from 'b' and returns the key int64 value and the remaining bytes
+// Possible errors:
+// - ErrShortBytes (too few bytes)
+// - TypeError{} (not an int64)
+func ReadInt64MapKeyZC(b []byte) (int64, []byte, error) {
+	o, b, err := ReadInt64Bytes(b)
+	if err != nil {
+		// Send a garbage int value just to satisfy the return types
+		return 99, b, err
+	}
+	return o, b, nil
+}
+
 // ReadArrayHeaderBytes attempts to read
 // the array header size off of 'b' and return
 // the size and remaining bytes.
